@@ -59,7 +59,7 @@ public partial class PlayerController : CharacterBody3D
         UpdateAttackTimers(deltaSeconds);
 
         Vector2 inputVector = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-        Vector3 moveDirection = new(inputVector.X, 0f, -inputVector.Y);
+        Vector3 moveDirection = new(inputVector.X, 0f, inputVector.Y);
         if (moveDirection.LengthSquared() > 1f)
         {
             moveDirection = moveDirection.Normalized();
