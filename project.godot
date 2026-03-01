@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="project_test"
-config/features=PackedStringArray("4.6", "Forward Plus")
 run/main_scene="res://scenes/levels/Main.tscn"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
