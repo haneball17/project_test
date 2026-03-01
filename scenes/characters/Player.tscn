@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/characters/PlayerController.cs" id="1_xas8k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dxb6s"]
+radius = 0.4
+height = 1.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pt2cc"]
+radius = 0.4
+mid_height = 1.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5u1gw"]
+radius = 1.1
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_xas8k")
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 1, 0)
+shape = SubResource("CapsuleShape3D_dxb6s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1, 0)
+mesh = SubResource("CapsuleMesh_pt2cc")
+
+[node name="AttackArea" type="Area3D" parent="."]
+position = Vector3(0, 1, -1)
+collision_layer = 0
+collision_mask = 4
+monitoring = true
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("SphereShape3D_5u1gw")

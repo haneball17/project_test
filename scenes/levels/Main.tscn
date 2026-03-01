@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_kmqmh"]
+[ext_resource type="PackedScene" path="res://scenes/characters/Enemy.tscn" id="2_4di15"]
+[ext_resource type="Script" path="res://scripts/systems/CameraFollowController.cs" id="3_f2o0i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lv2n4"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u1af4"]
+size = Vector3(30, 1, 30)
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-55, 35, 0)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+position = Vector3(0, -0.5, 0)
+shape = SubResource("BoxShape3D_lv2n4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+position = Vector3(0, -0.5, 0)
+mesh = SubResource("BoxMesh_u1af4")
+
+[node name="Player" parent="." instance=ExtResource("1_kmqmh")]
+position = Vector3(0, 0, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("2_4di15")]
+position = Vector3(4, 0, -2)
+
+[node name="MainCamera" type="Camera3D" parent="."]
+script = ExtResource("3_f2o0i")
+current = true
+position = Vector3(0, 7, 9)

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/characters/EnemyController.cs" id="1_7h8e3"]
+[ext_resource type="Script" path="res://scripts/systems/HealthComponent.cs" id="2_tg47g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x6e7v"]
+radius = 0.45
+height = 1.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0eu6a"]
+radius = 0.45
+mid_height = 1.2
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_7h8e3")
+collision_layer = 4
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 1, 0)
+shape = SubResource("CapsuleShape3D_x6e7v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1, 0)
+mesh = SubResource("CapsuleMesh_0eu6a")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_tg47g")
+MaxHealth = 60
