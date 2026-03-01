@@ -5,9 +5,10 @@
     <AssemblyName>project_test</AssemblyName>
     <RootNamespace>ProjectTest</RootNamespace>
     <Nullable>enable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="tests/**/*.cs" />
+    <Compile Include="scripts/**/*.cs" />
   </ItemGroup>
 </Project>

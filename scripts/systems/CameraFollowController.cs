@@ -1,3 +1,4 @@
+#nullable enable
 using Godot;
 
 public partial class CameraFollowController : Camera3D
