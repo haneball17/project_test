@@ -1,8 +1,38 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+/.import/
+.import/
 
 # .NET artifacts
 **/bin/
 **/obj/
 **/TestResults/
+
+# OS specific
+.DS_Store
+Thumbs.db
+*~
+
+# IDE & Editor
+.vscode/
+.idea/
+.vs/
+*.user
+*.suo
+*.sln.ide/
+
+# Godot export templates
+/export/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Build outputs
+*.exe
+*.app
