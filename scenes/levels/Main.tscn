@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene format=3 uid="uid://cas6vysvesm5t"]
 
 [ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_kmqmh"]
 [ext_resource type="PackedScene" path="res://scenes/characters/Enemy.tscn" id="2_4di15"]
-[ext_resource type="Script" path="res://scripts/systems/CameraFollowController.cs" id="3_f2o0i"]
+[ext_resource type="Script" uid="uid://tgglkst7oxmg" path="res://scripts/systems/CameraFollowController.cs" id="3_f2o0i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lv2n4"]
 size = Vector3(30, 1, 30)
@@ -10,30 +10,28 @@ size = Vector3(30, 1, 30)
 [sub_resource type="BoxMesh" id="BoxMesh_u1af4"]
 size = Vector3(30, 1, 30)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=1588063009]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-rotation_degrees = Vector3(-55, 35, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1754143584]
+transform = Transform3D(0.81915206, -0.46984634, 0.32898995, 0, 0.57357645, 0.81915206, -0.57357645, -0.6710101, 0.46984634, 0, 0, 0)
 
-[node name="Ground" type="StaticBody3D" parent="."]
-collision_layer = 1
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1591207462]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-position = Vector3(0, -0.5, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=785476612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_lv2n4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-position = Vector3(0, -0.5, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1613155761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_u1af4")
 
-[node name="Player" parent="." instance=ExtResource("1_kmqmh")]
-position = Vector3(0, 0, 0)
+[node name="Player" parent="." unique_id=1270227100 instance=ExtResource("1_kmqmh")]
 
-[node name="Enemy" parent="." instance=ExtResource("2_4di15")]
-position = Vector3(4, 0, -2)
+[node name="Enemy" parent="." unique_id=1951213023 instance=ExtResource("2_4di15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
 
-[node name="MainCamera" type="Camera3D" parent="."]
-script = ExtResource("3_f2o0i")
+[node name="MainCamera" type="Camera3D" parent="." unique_id=911413998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 9)
 current = true
-position = Vector3(0, 7, 9)
+script = ExtResource("3_f2o0i")
